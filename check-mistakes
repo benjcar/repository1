@@ -1,0 +1,27 @@
+pip install language_tool_python
+import language_tool_python
+
+def check_german_text(text):
+    # Create a language tool instance for German
+    tool = language_tool_python.LanguageTool('de')
+
+    # Check for mistakes in the text
+    matches = tool.check(text)
+
+    # Display mistakes and suggestions
+    if matches:
+        print(f"Found {len(matches)} mistake(s) in the text:")
+        for match in matches:
+            print(f"Error at position {match.fromx}-{match.tox}: {match.ruleIssueType} - {match.message}")
+            print(f"Suggested correction: {match.replacements}")
+            print()
+    else:
+        print("No mistakes found in the text.")
+
+# Example text
+german_text = """
+Hier ist ein Beispieltext mit einigen Fehlern. Ich hoffe, dass der Code sie finden kann.
+"""
+
+# Check the German text for mistakes
+check_german_text(german_text)
