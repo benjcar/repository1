@@ -2,7 +2,7 @@ pip install language_tool_python
 import language_tool_python
 
 def check_german_text(text):
-    # Create a language tool instance for German
+    # Create a language tool instance for German (or may be english too?)
     tool = language_tool_python.LanguageTool('de')
 
     # Check for mistakes in the text
